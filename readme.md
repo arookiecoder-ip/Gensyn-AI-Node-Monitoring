@@ -2,6 +2,14 @@
 
 # Gensyn AI Node Monitoring Script </div>
 
+### This script gives you:
+
+#### 100% auto interaction with login prompts
+#### 5-minute timer for login page
+#### Alerts if user doesn’t complete login
+#### Self-restarting on crash
+#### Intimating Via telegram and Gmail on Crashing and Stopping Of Program
+
 ## 🚀 Setup Guide
 
 ## 🔐 1. Set Up Gmail App Password (for sending email via msmtp)
@@ -114,9 +122,9 @@ And paste the below code
 # === CONFIGURATION ===
 TELEGRAM_BOT_TOKEN="YOUR_BOT_TOKEN"
 TELEGRAM_CHAT_ID="YOUR_CHAT_ID"
-EMAIL_TO="you@example.com"
-USERDATA_PATH="/path/to/userData.json"
-PROGRAM_COMMAND="/path/to/your_program.sh"
+EMAIL_TO="your_email@email.com"
+USERDATA_PATH="/rl-swarm/modal-login/temp-data/userData.json"
+PROGRAM_COMMAND="/rl-swarm/run_rl_swarm.sh"
 
 # === ALERT FUNCTIONS ===
 send_crash_alert() {
@@ -174,7 +182,8 @@ EOF
   sleep 5
 done
 ```
-
+Replace `YOUR_BOT_TOKEN` with your telegram bot token<br>
+Replace `YOUR_CHAT_ID` with your telegram chat id <br>
 Set The Permission 
 ```
 chmod +x run_and_alert.sh
