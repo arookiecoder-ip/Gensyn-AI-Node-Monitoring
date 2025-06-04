@@ -99,7 +99,7 @@ USE_BIG_SWARM=false
 SWARM_CONTRACT="$SMALL_SWARM_CONTRACT"
 echo -e "${GREEN_TEXT}✅ Joined Math Swarm (A).${RESET_TEXT}"
 
-PARAM_B=7
+PARAM_B=1.5
 echo -e "${GREEN_TEXT}✅ Selected parameter count: ${PARAM_B}B.${RESET_TEXT}"
 
 
