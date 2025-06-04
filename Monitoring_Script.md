@@ -175,22 +175,6 @@ Set The Permission
 ```
 chmod +x run_and_alert.sh
 ```
-#### Set The Parameters(The code will automatically run the program until the localhost page, so it is neccesary to setup before as per your pc requirement)
-
-Need to change some value in the main file `run_rl_swarm.sh`
-
-1. Make Sure you are in the `rl-swarm` directory
-2. Go to the file `run_rl_swarm.sh` by 
-```
-nano run_rl_swarm.sh
-```
-Now Go to line no :126<br> 
-You will find something like this :
-```
-pc=${pc:-0.5}  # Default to "0.5" if the user presses Enter
-```
-modify the value of `0.5` to whatever parameter u wish to keep .<br>
-Then Save the file
 
 Create And Activate Virtual Enviornment :
 ```
