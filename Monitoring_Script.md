@@ -123,7 +123,7 @@ And paste the below code
 TELEGRAM_BOT_TOKEN="YOUR_BOT_TOKEN"             # Replace with your bot token
 TELEGRAM_CHAT_ID="YOUR_CHAT_ID"                 # Replace with your chat ID
 EMAIL_TO="your_email@email.com"                        # Replace with your email address
-PROGRAM_COMMAND="/rl-swarm/run_rl_swarm.sh"     # Replace with your program/script
+PROGRAM_COMMAND="path-of-the-file/run_rl_swarm.sh"     # Replace with your program/script
 
 # === ALERT FUNCTIONS ===
 send_crash_alert() {
@@ -165,7 +165,13 @@ done
 ```
 Replace `YOUR_BOT_TOKEN` with your telegram bot token<br>
 Replace `YOUR_CHAT_ID` with your telegram chat id <br>
-Set The Permission 
+Replace `path-of-the-file` in `PROGRAM-COMMAND` with actual path where the `run_rl_swarm.sh` is located 
+
+> To get the actual path of the file
+1. Navigate To `rl-swarm` directory by typing `cd rl-swarm`(if u are in home directory). Then type `pwd` and copy the path and paste over there .<br> A Sample value of  `PROGRAM-COMMAND` to be put is  `/mnt/c/Users/user/rl-swarm/run_rl_swarm.sh` (Dont Paste This One. This is sample 
+
+
+Set The Permission
 ```
 chmod +x run_and_alert.sh
 ```
