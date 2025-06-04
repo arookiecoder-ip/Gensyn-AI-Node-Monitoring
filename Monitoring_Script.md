@@ -119,11 +119,13 @@ And paste the below code
 ```
 #!/bin/bash
 
+set -euo pipefail
+
 # === CONFIGURATION ===
-TELEGRAM_BOT_TOKEN="YOUR_BOT_TOKEN"             # Replace with your bot token
-TELEGRAM_CHAT_ID="YOUR_CHAT_ID"                 # Replace with your chat ID
-EMAIL_TO="your_email@email.com"                        # Replace with your email address
-PROGRAM_COMMAND="path-of-the-file/run_rl_swarm.sh"     # Replace with your program/script
+TELEGRAM_BOT_TOKEN="YOUR_BOT_TOKEN"                       # Replace with your bot token
+TELEGRAM_CHAT_ID="YOUR_CHAT_ID"                           # Replace with your chat ID
+EMAIL_TO="your_email@email.com"                           # Replace with your email address
+PROGRAM_COMMAND="path-of-the-file/run_rl_swarm.sh"        # Replace with your program/script
 
 # === ALERT FUNCTIONS ===
 send_crash_alert() {
@@ -131,9 +133,9 @@ send_crash_alert() {
 
   curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
     -d chat_id="$TELEGRAM_CHAT_ID" \
-    -d text="💥 Program crashed on $(hostname) at $(date). Restarting..."
+    -d text="💥 Program crashed or stopped on $(hostname) at $(date)."
 
-  echo -e "Subject: Program Crash Alert 💥\n\nProgram crashed on $(hostname) at $(date). Restarting..." \
+  echo -e "Subject: Program Crash Alert 💥\n\nThe program crashed or stopped on $(hostname) at $(date)." \
     | msmtp "$EMAIL_TO"
 }
 
@@ -143,9 +145,9 @@ send_manual_stop_alert() {
 
   curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
     -d chat_id="$TELEGRAM_CHAT_ID" \
-    -d text="🛑 Program manually stopped on $(hostname) at $(date). No auto-restart."
+    -d text="🛑 Program manually stopped on $(hostname) at $(date)."
 
-  echo -e "Subject: Program Manual Stop Alert 🛑\n\nProgram manually stopped on $(hostname) at $(date)." \
+  echo -e "Subject: Program Manual Stop Alert 🛑\n\nThe program was manually stopped on $(hostname) at $(date)." \
     | msmtp "$EMAIL_TO"
 
   exit 0
@@ -153,15 +155,13 @@ send_manual_stop_alert() {
 
 # === TRAPS ===
 trap send_manual_stop_alert SIGINT   # Ctrl+C
-trap send_crash_alert EXIT           # Any other exit
+trap send_crash_alert EXIT           # Any non-manual exit
 
-# === MAIN LOOP TO AUTO-RESTART ON CRASH ===
-while true; do
-  echo "🚀 Starting program at $(date)"
-  bash "$PROGRAM_COMMAND"
-  echo "❌ Program exited. Restarting in 5 seconds..."
-  sleep 5
-done
+# === RUN THE PROGRAM ONCE ===
+echo "🚀 Starting program at $(date)"
+bash "$PROGRAM_COMMAND"
+echo "✅ Program completed normally at $(date)"
+
 ```
 Replace `YOUR_BOT_TOKEN` with your telegram bot token<br>
 Replace `YOUR_CHAT_ID` with your telegram chat id <br>
