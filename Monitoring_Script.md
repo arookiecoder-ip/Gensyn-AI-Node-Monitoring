@@ -168,7 +168,8 @@ Replace `YOUR_CHAT_ID` with your telegram chat id <br>
 Replace `path-of-the-file` in `PROGRAM-COMMAND` with actual path where the `run_rl_swarm.sh` is located 
 
 > To get the actual path of the file
-1. Navigate To `rl-swarm` directory by typing `cd rl-swarm`(if u are in home directory). Then type `pwd` and copy the path and paste over there .<br> A Sample value of  `PROGRAM-COMMAND` is  `/mnt/c/Users/user/rl-swarm/run_rl_swarm.sh` (Dont Paste This One. This is sample 
+1. Navigate To `rl-swarm` directory by typing `cd rl-swarm`(if u are in home directory). Then type `pwd` and copy the path and paste over there .<br> A Sample value of  `PROGRAM-COMMAND` is  `/mnt/c/Users/user/rl-swarm/run_rl_swarm.sh` (Dont Paste This One. This is sample)
+2. Then Save The File
 
 
 Set The Permission
