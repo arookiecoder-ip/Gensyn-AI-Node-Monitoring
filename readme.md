@@ -9,6 +9,7 @@ First Go To The ` GensynAi` Node Run Setup [GensynAI Guide](https://github.com/M
 
 > [!NOTE]
 > Follow The Next Steps Only After Setting Up the node .
+> Skip Node Setep If Already Setup
 
 > [!CAUTION]
 > Dont Run The Node Before Completing The Next Steps.
