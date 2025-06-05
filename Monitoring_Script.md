@@ -185,7 +185,7 @@ source .venv/bin/activate
 ```
 ### Now Run The File by
 ```
-run_and_alert.sh
+./run_and_alert.sh
 ```
 
 
