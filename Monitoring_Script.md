@@ -73,7 +73,7 @@ sudo apt install expect msmtp curl
 > An Option Will Appear as : ` Enable AppArmor support? [yes/no] no ` . Type `no` and then hit `enter`
 ### ✅ 2. Set up msmtp (for email)
 
-Create or edit ~/.msmtprc:
+Create or edit ~/.msmtprc: ( Install nano if not installed by : `sudo apt install nano `)
 
 ```
 nano .msmtprc
